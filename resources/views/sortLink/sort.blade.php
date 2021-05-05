@@ -1,4 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.template')
+@section('title')
+ Memperpendek Link
+@endsection
 @section('content')
 <div class="container">
     <div class="row">
@@ -11,7 +14,7 @@
                         @endif
                         <br>
                         @error('original_url')
-                        <div class="alert alert-success alert-block">
+                        <div class="alert alert-warning alert-block">
                             <b>{{ $message }}</b>
                         </div>
                         @enderror
@@ -24,8 +27,7 @@
                                     aria-describedby="basic-addon2">
 
                                 <div class="input-group-append">
-                                    <button class="btn btn-primary" type="submit">
-                                        <i class="fas fa-search fa-sm"></i>Sort
+                                    <button class="btn btn-primary" type="submit"> Sort
                                     </button>
                                 </div>
                             </div>

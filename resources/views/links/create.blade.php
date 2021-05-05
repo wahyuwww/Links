@@ -1,4 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.template')
+@section('title')
+Buat link
+@endsection
 @section('content')
     <div class="container">
         <div class="row">
@@ -10,13 +13,13 @@
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
                                     <label for="name">Link Name</label>
-                                    <input type="text" id="name" name="name" class="form-control" placeholder="My YouTube Channel">
+                                    <input type="text" id="name" name="name" class="form-control" placeholder="PLN Pusdiklat">
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
                                     <label for="name">Link URL</label>
-                                    <input type="text" id="link" name="link" class="form-control" placeholder="https://youtube.com/user/aschmelyun">
+                                    <input type="text" id="link" name="link" class="form-control" placeholder="http://plnpusdiklat.web.id/">
                                 </div>
                             </div>
                         </div>

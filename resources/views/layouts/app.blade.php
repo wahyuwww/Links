@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'PLN LINK') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -23,10 +23,10 @@
 
 <body style="{{ isset($backgroundColor) ? 'background-color:' . $backgroundColor : '' }}">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav style="background-color:#6c5ce7 !important; " class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <a style="color:white;"class="navbar-brand" href="{{ url('/') }}">
+                    PLN LINK
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -43,53 +43,11 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a style="color:white;"class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
 
-                        @else
-                        <li class="nav-item">
-                            <a class="nav-link" href="/dashboard/links">Links</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/dashboard/linksAdmin">Admin</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/dashboard/user">User</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/dashboard/kompres">kompres</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/dashboard/sort">Sort Link</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/dashboard/about">About</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->username }} <span class="caret"></span>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/dashboard/settings">Settings</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                    style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-                        @endguest
+                        
                     </ul>
                 </div>
             </div>

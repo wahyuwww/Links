@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ShortRequest;
 use App\ShortUrl;
 use App\User;
+use Illuminate\Support\Str;
 
 class ShortUrlController extends Controller
 {
@@ -24,12 +25,12 @@ class ShortUrlController extends Controller
             ]);
             }
             if ($new_url) {
-                $short_url = base_convert($new_url->id, 10, 36,);
+                $short_url = str_random($new_url->id, 10, 36,);
                 $new_url->update([
                     'short_url' => $short_url
                 ]);
 
-                return redirect()->back()->with('success_message', 'Your Short url: <a target="_blank"class="text-green-500" href="'. url($short_url) .'">'. url($short_url) .'</a>');
+                return redirect()->back()->with('success_message', 'Ini link Anda : <a target="_blank"class="text-green-500" href="'. url($short_url) .'">'. url($short_url) .'</a>');
             }
         }
         return back();

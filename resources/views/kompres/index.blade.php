@@ -1,14 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.template')
 
 @section('title')
-Data User
+Data kompres link
 @endsection
 
 @section('content')
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Data User</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Data kompres link</h6>
     </div>
     <div class="card-body">
         <br>
@@ -40,8 +40,7 @@ Data User
                             onsubmit="return confirm('Apakah anda yakin akan menghapus data ini ?')">
                             @csrf
                             {{ method_field('DELETE') }}
-                            <button type="submit" class="btn btn-round btn-warning"> Hapus<i class="fa fa-trash-o"
-                                    aria-hidden="true"></i></button>
+                            <button type="submit" class="btn btn-round btn-warning"> Hapus</button>
                         </form></td>
                         {{-- <td><a href="{{ $link->short_url }}"></a>{{ $link->short_url }}</td> --}}
                     </tr>

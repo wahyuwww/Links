@@ -15,6 +15,10 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('superadmin');
+    }
     public function index()
     {
         $data_user = User::paginate(100000);
@@ -74,7 +78,7 @@ class UsersController extends Controller
             return redirect()->to('/dashboard/user');
         }
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'user berhasil di hapus');;
     }
 
     /**

@@ -15,13 +15,13 @@ use App\About;
 */
 
 Route::get('/', function () {
-    $about = About::all();
-    return view('index', compact('about'));
+    return view('auth.login');
 })->name('home');
 Auth::routes();
-//Route::get('index','WelcomeController@index');
+
 Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
     Route::resource('/linksAdmin', 'LinkAdminController');
+    Route::get('/view', 'ViewAboutController@index');
     Route::get('/links', 'LinkController@index');
     Route::get('/links/new', 'LinkController@create');
     Route::post('/links/new', 'LinkController@store');

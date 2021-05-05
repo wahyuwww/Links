@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class ShortUserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('superadmin');
+    }
     public function index()
     {
         $links = ShortUrl::paginate(6);

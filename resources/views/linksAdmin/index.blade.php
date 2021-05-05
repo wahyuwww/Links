@@ -1,11 +1,16 @@
-@extends('layouts.app')
+@extends('layouts.template')
+@section('title')
+    Kelola Link 
+@endsection
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-12 card">
                 <div class="card-body">
-                    <h2 class="card-title">Your links</h2>
-                    <table class="table table-striped">
+                    <h2 class="card-title">Kumpulan Link</h2>
+                   <div class="table-responsive">
+                        {{-- @include('alert.success') --}}
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th scope="col">Name</th>
@@ -29,14 +34,14 @@
                                             onsubmit="return confirm('Apakah anda yakin akan menghapus data ini ?')">
                                             @csrf
                                             {{ method_field('DELETE') }}
-                                            <button type="submit" class="btn btn-round btn-warning"> Hapus<i class="fa fa-trash-o"
-                                                    aria-hidden="true"></i></button>
+                                            <button type="submit" class="btn btn-round btn-warning">Hapus</button>
                                         </form>
                                     </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
+                   </div>
                     {{-- <a href="/dashboard/links/new" class="btn btn-primary">Add Link</a> --}}
                 </div>
             </div>

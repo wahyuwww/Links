@@ -1,4 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.template')
+@section('title')
+Kelola User
+@endsection
 @section('content')
     <div class="container">
         <div class="row">
@@ -10,8 +13,9 @@
                         <br>
                         <br>
                     </div>
-                    <table class="table table-striped">
-                       
+                   <div class="table-responsive">
+                        @include('alert.success')
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
@@ -37,7 +41,7 @@
                                             @csrf
                                             {{ method_field('DELETE') }}
                                         <a class="btn btn-round btn-success" href="/dashboard/user/{{ $item->id }}">Edit</a>
-                                            <button type="submit" class="btn btn-round btn-warning"> Hapus<i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                            <button type="submit" class="btn btn-round btn-warning"> Hapus</button>
                                         </form>
                                     </td>
                                 </tr>
@@ -45,7 +49,7 @@
                         </tbody>
                         
                     </table>
-                   
+                   </div>
                 </div>
             </div>
         </div>

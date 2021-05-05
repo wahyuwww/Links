@@ -72,9 +72,11 @@ class UserController extends Controller
         $request->validate([
             'background_color' => 'required|size:7|starts_with:#',
             'text_color' => 'required|size:7|starts_with:#',
-            'username' => 'required|regex:/^\S*$/u|max:100|unique:users,username,' ,
+            'username' => 'required|regex:/^\S*$/u|max:100' ,
             'email' => 'required|email|max:255',
-            'avatar_file' =>  'sometimes|nullable|mimes:jpeg,jpg,png|max:5048'
+            'avatar_file' =>  'sometimes|nullable|mimes:jpeg,jpg,png|max:10048'
+        ],[
+            'username.regex' => 'Tidak Boleh memakai spasi .'
         ]);
          $userid = Auth::user()->id;
         $user = User::find($userid);
@@ -86,6 +88,8 @@ class UserController extends Controller
             $user->password = Hash::make($request->password);
         }
 
+
+        
         if ($request->hasFile('avatar_file')) {
             if ($request->file('avatar_file')->isValid()) {
                 Storage::disk('upload')->delete($user->avatar_file);

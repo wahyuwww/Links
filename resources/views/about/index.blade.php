@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.template')
 
 @section('title')
-Data User
+Data About
 @endsection
 
 @section('content')
@@ -11,13 +11,11 @@ Data User
 @endpush
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Data User</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Data About</h6>
     </div>
     <div class="card-body">
         <div class="col-md-10">
-            <a data-toggle="modal" data-target="#exampleModal" class="btn btn-success"><span
-                    class=" fa fa-plus-circle"></span>
-                Tambah User</a>
+           <a href="{{route('about.create')}}" class="btn btn-primary">Add About</a>
         </div>
         <br>
         <div class="table-responsive">
@@ -43,11 +41,9 @@ Data User
                                 onsubmit="return confirm('Apakah anda yakin akan menghapus data ini ?')">
                                 @csrf
                                 {{ method_field('DELETE') }}
-                                <button type="submit" class="btn btn-round btn-warning"><i class="fa fa-trash-o"
-                                        aria-hidden="true"></i></button>
-                               <i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                <button type="submit" class="btn btn-round btn-warning">HAPUS</button>
                             
-                            <a class="btn btn-round btn-success btn-md" href="{{ route('about.edit',[$abouts->id]) }}"><i class="fa fa-pencil-square-o"aria-hidden="true"></i></a>
+                            <a class="btn btn-round btn-success" href="{{ route('about.edit',[$abouts->id]) }}">EDIT</a>
                             </form>
                         </td>
                     </tr>

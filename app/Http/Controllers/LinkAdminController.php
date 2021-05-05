@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Auth;
 
 class LinkAdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('superadmin');
+    }
     public function index(){
         $links = LinkAdmin::all();
         $user = User::all();

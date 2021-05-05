@@ -1,4 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.template')
+@section('title')
+edit link
+@endsection
 @section('content')
     <div class="container">
         <div class="row">
